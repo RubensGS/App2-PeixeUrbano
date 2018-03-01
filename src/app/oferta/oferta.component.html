@@ -43,7 +43,20 @@
     </div>
 
   </div>
-  <br />
-  <br />
+  <div class="row" style="margin-top: 25px; margin-bottom: 150px;">
+    <div class="col">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="como-usar" data-toggle="tab" role="tab" aria-selected="true">Como usar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="onde-fica" data-toggle="tab" href="#onde-fica" role="tab" aria-selected="false">Onde Fica?</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
 
