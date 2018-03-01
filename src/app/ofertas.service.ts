@@ -31,5 +31,6 @@ export class OfertasService {
     return this.http.get(`${URL_API}?id=${id}`)
     .toPromise()
     .then((resp: any) => resp.json()[0]);
+    // Teste
   }
 }
