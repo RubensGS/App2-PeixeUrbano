@@ -2,11 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OfertasService } from '../ofertas.service';
 import { Oferta } from '../shared/oferta.model';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
-import 'rxjs/Rx';
-import { Observer } from 'rxjs/Observer';
-import { Subscription } from 'rxjs/Subscription';
+// import 'rxjs/Rx';
+// import { Observer } from 'rxjs/Observer';
+// import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-oferta',
@@ -14,10 +14,10 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./oferta.component.css'],
   providers: [ OfertasService ]
 })
-export class OfertaComponent implements OnInit, OnDestroy {
+export class OfertaComponent implements OnInit {
 
-  public tempoObservableSubscription: Subscription;
-  public meuObservableTesteSubscription: Subscription;
+  // public tempoObservableSubscription: Subscription;
+  // public meuObservableTesteSubscription: Subscription;
 
   public oferta: Oferta;
 
@@ -42,33 +42,33 @@ export class OfertaComponent implements OnInit, OnDestroy {
     // });
 
     // tslint:disable-next-line:prefer-const
-    let tempo = Observable.interval(2000);
+    // let tempo = Observable.interval(2000);
 
-    this.tempoObservableSubscription = tempo.subscribe((intervalo: number) => console.log(intervalo));
+    // this.tempoObservableSubscription = tempo.subscribe((intervalo: number) => console.log(intervalo));
 
     // observable (observável)
     // tslint:disable-next-line:prefer-const
-    let meuObservableteste = Observable.create((observer: Observer<number>) => {
-      observer.next(1);
-      observer.next(2);
-      observer.complete();
-      observer.error('Algum erro foi encontrado na stream de eventos');
-    });
+    // let meuObservableteste = Observable.create((observer: Observer<number>) => {
+    //   observer.next(1);
+    //   observer.next(2);
+    //   observer.complete();
+    //   observer.error('Algum erro foi encontrado na stream de eventos');
+    // });
 
     // observable (observador)
-    this.meuObservableTesteSubscription = meuObservableteste.subscribe(
+    // this.meuObservableTesteSubscription = meuObservableteste.subscribe(
       // tratar fluxo de dados
-      (resp) => console.log(resp),
+      // (resp) => console.log(resp),
       // tratar erros
-      (erro) => console.log(erro),
+      // (erro) => console.log(erro),
       // tratar finalização da stream
-      () => console.log('Stream foi finalizada')
-      );
+      // () => console.log('Stream foi finalizada')
+      // );
   }
 
-  ngOnDestroy() {
-    this.meuObservableTesteSubscription.unsubscribe();
-    this.tempoObservableSubscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.meuObservableTesteSubscription.unsubscribe();
+  //   this.tempoObservableSubscription.unsubscribe();
+  // }
 
 }
