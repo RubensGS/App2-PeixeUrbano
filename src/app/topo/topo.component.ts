@@ -15,7 +15,6 @@ import '../util/rxjs-extensions';
 export class TopoComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>;
-  public ofertas2: Oferta[];
   private subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor(private ofertasService: OfertasService) { }
@@ -36,11 +35,6 @@ export class TopoComponent implements OnInit {
         console.log(erro);
         return Observable.of<Oferta[]>([]);
       });
-
-    this.ofertas.subscribe(
-      (ofertas: Oferta[]) => {
-        return this.ofertas2 = ofertas;
-    });
   }
 
   // Usando o pesquisa($event) no HTML
@@ -51,6 +45,10 @@ export class TopoComponent implements OnInit {
   // Usando variável de referência no HTML #termoDaPesquisa -> Aproach de atributo de referência
   public pesquisa(termoDaBusca: string): void {
     this.subjectPesquisa.next(termoDaBusca);
+  }
+
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next('');
   }
 
 }
